@@ -53,7 +53,7 @@ public class AdminResource {
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response deletarRs(@PathParam("id") int id) throws ClassNotFoundException, SQLException {
-		adminBO.deletarBo(id);
+		/*adminBO.deletarBo(id);*/
 		return Response.ok().build();
 	}
 

@@ -21,7 +21,7 @@ public class AdminDAO {
 	// Insert 
 			public String inserir (Admin admin) throws SQLException {
 				PreparedStatement stmt = minhaConexao.prepareStatement
-						("Insert into BL_ADMIN values (?, ?, ?, ?, ? ,?, ?");
+						("Insert into BL_ADMIN values (?, ?, ?, ?, ?, ?, ?)");
 					stmt.setInt(1, admin.getId());
 					stmt.setString(2, admin.getNome());
 					stmt.setString(3, admin.getSobrenome());
@@ -55,5 +55,25 @@ public class AdminDAO {
 						listaAdmin.add(admin);
 					}		
 				return listaAdmin;		
+			}
+			// Delete
+			public String deletar(int id) throws SQLException {
+				PreparedStatement stmt = minhaConexao.prepareStatement
+						("Delete from BL_ADMIN where ID_ADMIN = ?");
+					stmt.setInt(1, id);
+					stmt.execute();
+					stmt.close();		
+				return "Deletado com Sucesso!";
+			}
+			// UpDate 
+			public String atualizar(Admin admin) throws SQLException {
+				PreparedStatement stmt = minhaConexao.prepareStatement
+						(" Update BL_ADMIN set NOME_ADMIN = ?, SOBRENOME_ADMIN = ?, where ID_ADMIN = ?");
+						stmt.setInt(1, admin.getId());
+						stmt.setString(2, admin.getNome());
+						stmt.setString(3, admin.getSobrenome());
+						stmt.executeUpdate();
+						stmt.close();	
+				return "Atualizado com Sucesso!";
 			}
 }

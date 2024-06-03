@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import br.com.fiap.beans.Admin;
+import br.com.fiap.beans.Usuario;
 import br.com.fiap.dao.AdminDAO;
 import br.com.fiap.dao.UsuarioDAO;
 
@@ -24,18 +25,29 @@ public class TesteCadastro {
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		Admin adm = new Admin();
+		Usuario usr = new Usuario();
 		
 		AdminDAO dao = new AdminDAO();
+		UsuarioDAO dao2 = new UsuarioDAO();
 		
-		adm.setId(inteiro("id:"));
+		/*adm.setId(inteiro("id:"));
 		adm.setNome(texto("Nome"));
 		adm.setSobrenome(texto("Sobrenome:"));
 		adm.setSexo(texto("Sexo"));
 		adm.setCargo(texto("Cargo:"));
 		adm.setId_endereco(inteiro("Id endereço"));
-		adm.setId_telefone(inteiro("Id Telefone"));
+		adm.setId_telefone(inteiro("Id Telefone"));*/
 		
-		System.out.println(dao.inserir(adm));
+		usr.setId(inteiro("id:"));
+		usr.setNome(texto("Nome"));
+		usr.setSobrenome(texto("Sobrenome:"));
+		usr.setSexo(texto("Sexo"));
+		usr.setId_endereco(inteiro("Id endereço"));
+		usr.setId_telefone(inteiro("Id Telefone"));
+		
+		System.out.println(dao2.inserir(usr));
+		
+		//System.out.println(dao.inserir(adm));
 		
 		
 	}

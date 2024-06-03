@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.fiap.beans.Admin;
 import br.com.fiap.beans.Usuario;
 import br.com.fiap.conexoes.ConexaoFactory;
 
@@ -22,7 +23,7 @@ public class UsuarioDAO {
 	// Insert 
 		public String inserir (Usuario usuario) throws SQLException {
 			PreparedStatement stmt = minhaConexao.prepareStatement
-					("Insert into BL_USUARIO values (?, ?, ?, ?, ? ,?");
+					("Insert into BL_USUARIO values (?, ?, ?, ?, ?, ?)");
 				stmt.setInt(1, usuario.getId());
 				stmt.setString(2, usuario.getNome());
 				stmt.setString(3, usuario.getSobrenome());
@@ -53,6 +54,27 @@ public class UsuarioDAO {
 					listaUsuario.add(usuario);
 				}		
 			return listaUsuario;		
+		}
+		
+		// Delete
+		public String deletar(int id) throws SQLException {
+			PreparedStatement stmt = minhaConexao.prepareStatement
+					("Delete from BL_USUARIO where ID_USUARIO = ?");
+				stmt.setInt(1, id);
+				stmt.execute();
+				stmt.close();		
+			return "Deletado com Sucesso!";
+		}
+		// UpDate 
+		public String atualizar(Usuario usuario) throws SQLException {
+			PreparedStatement stmt = minhaConexao.prepareStatement
+					(" Update BL_ADMIN set NOME_USUARIO = ?, SOBRENOME_USUARIO = ?, where ID_USUARIO = ?");
+					stmt.setString(1, usuario.getNome());
+					stmt.setString(2, usuario.getSobrenome());
+					stmt.setInt(3, usuario.getId());
+					stmt.executeUpdate();
+					stmt.close();	
+			return "Atualizado com Sucesso!";
 		}
 		
 }
