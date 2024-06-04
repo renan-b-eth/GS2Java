@@ -11,16 +11,16 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import com.google.gson.Gson;
 import br.com.fiap.model.ConsultaCNPJ;
-import br.com.fiap.model.ConsultaElevacao;
+import br.com.fiap.model.ConsultaFrase;
 import br.com.fiap.model.ConsultaViaCEP;
 
-public class ElevacaoService {
+public class FraseService {
 	
-    public ConsultaElevacao getConsultaElevacao(String lat, String lon) throws ClientProtocolException, IOException {
+    public ConsultaFrase getConsultaElevacao() throws ClientProtocolException, IOException {
 
-        ConsultaElevacao consultaElevacao = null;
+        ConsultaFrase consultaFrase = null;
         
-        String url = "https://api.opentopodata.org/v1/test-dataset?locations=56.40,110.50";
+        String url = "https://uselessfacts.jsph.pl/api/v2/facts/random";
         
 
         HttpGet request = new HttpGet(url);
@@ -33,10 +33,10 @@ public class ElevacaoService {
             if (entity != null) {
                 String result = EntityUtils.toString(entity);
                 Gson gson = new Gson();
-                consultaElevacao = gson.fromJson(result, ConsultaElevacao.class);
+                consultaFrase = gson.fromJson(result, ConsultaFrase.class);
             }
         }
         
-        return consultaElevacao;
+        return consultaFrase;
     }
 }

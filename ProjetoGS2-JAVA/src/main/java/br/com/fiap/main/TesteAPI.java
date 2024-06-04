@@ -6,9 +6,9 @@ import java.util.Scanner;
 import org.apache.http.client.ClientProtocolException;
 
 import br.com.fiap.model.ConsultaCNPJ;
-import br.com.fiap.model.ConsultaElevacao;
+import br.com.fiap.model.ConsultaFrase;
 import br.com.fiap.model.ConsultaViaCEP;
-import br.com.fiap.service.ElevacaoService;
+import br.com.fiap.service.FraseService;
 import br.com.fiap.service.VIACEPService;
 
 public class TesteAPI {
@@ -17,17 +17,13 @@ public class TesteAPI {
 		
 		/*CNPJService cnpjService = new CNPJService();*/
 		VIACEPService viaCepService = new VIACEPService();
-		ElevacaoService elevacaoService = new ElevacaoService();
+		FraseService fraseService = new FraseService();
         
         Scanner scanner = new Scanner(System.in);
         /*System.out.println("Digite o CEP");*/
-        System.out.println("Digite a latidute em formato (XXX.YY)");
-        String lat = scanner.nextLine();
-        System.out.println("Digite a long em formato (XXX.YY)");
-        String lon = scanner.nextLine();
         
         /*ConsultaViaCEP consultaCEP = viaCepService.getConsultaViaCEP(cep);*/
-        ConsultaElevacao consultaElevacao = elevacaoService.getConsultaElevacao(lat, lon);
+        ConsultaFrase consultaFrase = fraseService.getConsultaElevacao();
         
         /*if (consultaCEP != null) {
             System.out.println("Logradouro: " + consultaCEP.getLogradouro() + "\nBairro: " + consultaCEP.getBairro());
@@ -36,8 +32,10 @@ public class TesteAPI {
             System.out.println("CEP ERRADO.");
         }*/
         
-        if (consultaElevacao != null) {
-            System.out.println("Elevacao: " + consultaElevacao.getResults());
+        
+        /*EXEMPLO DA SEGUNDA API CONSUMO*/
+        if (consultaFrase != null) {
+            System.out.println("id: " + consultaFrase.getId() + "\nTexto: " + consultaFrase.getText() + "\nIdioma: " + consultaFrase.getLanguage());
 
         } else {
             System.out.println("Latitude ou long errada");
