@@ -17,34 +17,37 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import br.com.fiap.beans.Admin;
+import br.com.fiap.beans.Usuario;
 import br.com.fiap.bo.AdminBO;
+import br.com.fiap.bo.UsuarioBO;
 
 
-@Path("/admin")
-public class AdminResource {
+@Path("/usuario")
+public class UsuarioResource {
 	
-	private AdminBO adminBO = new AdminBO();
+	/*private AdminBO adminBO = new AdminBO();*/
+	private UsuarioBO usuarioBO = new UsuarioBO();
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Admin> selecionarRs() throws ClassNotFoundException, SQLException{
+	public ArrayList<Usuario> selecionarRs() throws ClassNotFoundException, SQLException{
 		
-		return (ArrayList<Admin>) adminBO.selecionarBo();
+		return (ArrayList<Usuario>) usuarioBO.selecionarBo();
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response inserirRs(Admin admin, @Context UriInfo uriInfo ) throws ClassNotFoundException, SQLException {
-		adminBO.inserirBo(admin);
+	public Response inserirRs(Usuario usuario, @Context UriInfo uriInfo ) throws ClassNotFoundException, SQLException {
+		usuarioBO.inserirBo(usuario);
 		UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-		builder.path(Integer.toString(admin.getId()));
+		builder.path(Integer.toString(usuario.getId()));
 		return Response.created(builder.build()).build();
 	}
 	
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response atualizarRs(Admin admin, @PathParam("id") int id) throws ClassNotFoundException, SQLException {
+	public Response atualizarRs(Usuario usuario, @PathParam("id") int id) throws ClassNotFoundException, SQLException {
 				
 		return Response.ok().build();
 	}
@@ -53,7 +56,7 @@ public class AdminResource {
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response deletarRs(@PathParam("id") int id) throws ClassNotFoundException, SQLException {
-		adminBO.deletarBo(id);
+		usuarioBO.deletarBo(id);
 		return Response.ok().build();
 	}
 

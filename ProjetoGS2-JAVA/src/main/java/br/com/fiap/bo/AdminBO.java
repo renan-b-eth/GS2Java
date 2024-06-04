@@ -24,6 +24,17 @@ public class AdminBO {
 			adminDAO.inserir(admin);
 		}
 		
+		public void atualizarBo(Admin admin) throws ClassNotFoundException, SQLException  {
+			/*AlunoDAO alunoDAO = new AlunoDAO();*/
+			AdminDAO adminDAO = new AdminDAO();
+			adminDAO.atualizar(admin);
+		}
+		
+		public void deletarBo(int rm) throws ClassNotFoundException, SQLException {
+			AdminDAO adminDAO = new AdminDAO();
+			adminDAO.deletar(rm);
+		}	
+		
 		
 
 }
