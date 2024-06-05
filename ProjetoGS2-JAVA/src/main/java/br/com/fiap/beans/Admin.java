@@ -2,7 +2,32 @@ package br.com.fiap.beans;
 
 public class Admin {
 	private int id, id_endereco, id_telefone;
-	private String nome, sobrenome, cargo, sexo;
+	private String nome, sobrenome, cargo, sexo, senha, senha2;
+	public Admin(int id, int id_endereco, int id_telefone, String nome, String sobrenome, String cargo, String sexo,
+			String senha, String senha2) {
+		super();
+		this.id = id;
+		this.id_endereco = id_endereco;
+		this.id_telefone = id_telefone;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cargo = cargo;
+		this.sexo = sexo;
+		this.senha = senha;
+		this.senha2 = senha2;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getSenha2() {
+		return senha2;
+	}
+	public void setSenha2(String senha2) {
+		this.senha2 = senha2;
+	}
 	public Admin(int id, int id_endereco, int id_telefone, String nome, String sobrenome, String cargo, String sexo) {
 		super();
 		this.id = id;
@@ -58,7 +83,8 @@ public class Admin {
 	@Override
 	public String toString() {
 		return "Admin [id=" + id + ", id_endereco=" + id_endereco + ", id_telefone=" + id_telefone + ", nome=" + nome
-				+ ", sobrenome=" + sobrenome + ", cargo=" + cargo + ", sexo=" + sexo + ", getSexo()=" + getSexo()
+				+ ", sobrenome=" + sobrenome + ", cargo=" + cargo + ", sexo=" + sexo + ", senha=" + senha + ", senha2="
+				+ senha2 + ", getSenha()=" + getSenha() + ", getSenha2()=" + getSenha2() + ", getSexo()=" + getSexo()
 				+ ", getId()=" + getId() + ", getId_endereco()=" + getId_endereco() + ", getId_telefone()="
 				+ getId_telefone() + ", getNome()=" + getNome() + ", getSobrenome()=" + getSobrenome() + ", getCargo()="
 				+ getCargo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="

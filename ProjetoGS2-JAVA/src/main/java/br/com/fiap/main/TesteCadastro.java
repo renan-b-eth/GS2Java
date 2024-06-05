@@ -30,24 +30,26 @@ public class TesteCadastro {
 		AdminDAO dao = new AdminDAO();
 		UsuarioDAO dao2 = new UsuarioDAO();
 		
-		/*adm.setId(inteiro("id:"));
+		adm.setId(inteiro("id:"));
 		adm.setNome(texto("Nome"));
 		adm.setSobrenome(texto("Sobrenome:"));
 		adm.setSexo(texto("Sexo"));
 		adm.setCargo(texto("Cargo:"));
+		adm.setSenha(texto("Senha:"));
+		adm.setSenha2(texto("Senha novamente:"));
 		adm.setId_endereco(inteiro("Id endereço"));
-		adm.setId_telefone(inteiro("Id Telefone"));*/
+		adm.setId_telefone(inteiro("Id Telefone"));
 		
-		usr.setId(inteiro("id:"));
+		/*usr.setId(inteiro("id:"));
 		usr.setNome(texto("Nome"));
 		usr.setSobrenome(texto("Sobrenome:"));
 		usr.setSexo(texto("Sexo"));
 		usr.setId_endereco(inteiro("Id endereço"));
 		usr.setId_telefone(inteiro("Id Telefone"));
 		
-		System.out.println(dao2.inserir(usr));
+		System.out.println(dao2.inserir(usr));*/
 		
-		//System.out.println(dao.inserir(adm));
+		System.out.println(dao.inserir(adm));
 		
 		
 	}

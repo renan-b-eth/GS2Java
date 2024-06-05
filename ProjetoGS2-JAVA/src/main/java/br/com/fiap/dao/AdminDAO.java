@@ -21,14 +21,16 @@ public class AdminDAO {
 	// Insert 
 			public String inserir (Admin admin) throws SQLException {
 				PreparedStatement stmt = minhaConexao.prepareStatement
-						("Insert into BL_ADMIN values (?, ?, ?, ?, ?, ?, ?)");
+						("Insert into BL_ADMIN values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 					stmt.setInt(1, admin.getId());
 					stmt.setString(2, admin.getNome());
 					stmt.setString(3, admin.getSobrenome());
 					stmt.setString(4, admin.getSexo());
 					stmt.setString(5, admin.getCargo());
-					stmt.setInt(6, admin.getId_endereco());
-					stmt.setInt(7, admin.getId_telefone());
+					stmt.setString(6, admin.getSenha());
+					stmt.setString(7, admin.getSenha2());
+					stmt.setInt(8, admin.getId_endereco());
+					stmt.setInt(9, admin.getId_telefone());
 					stmt.execute();
 					stmt.close();			
 				return "Cadastrado com Sucesso!";
@@ -49,8 +51,10 @@ public class AdminDAO {
 						admin.setSobrenome(rs.getString(3));
 						admin.setSexo(rs.getString(4));
 						admin.setCargo(rs.getString(5));
-						admin.setId_endereco(rs.getInt(6));
-						admin.setId_telefone(rs.getInt(7));
+						admin.setSenha(rs.getString(6));
+						admin.setSenha2(rs.getString(7));
+						admin.setId_endereco(rs.getInt(8));
+						admin.setId_telefone(rs.getInt(9));
 						
 						listaAdmin.add(admin);
 					}		

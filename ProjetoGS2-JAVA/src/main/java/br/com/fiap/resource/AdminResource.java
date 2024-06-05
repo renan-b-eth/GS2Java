@@ -28,7 +28,6 @@ public class AdminResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Admin> selecionarRs() throws ClassNotFoundException, SQLException{
-		
 		return (ArrayList<Admin>) adminBO.selecionarBo();
 	}
 	
@@ -40,8 +39,7 @@ public class AdminResource {
 		builder.path(Integer.toString(admin.getId()));
 		return Response.created(builder.build()).build();
 	}
-	
-	
+
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response atualizarRs(Admin admin, @PathParam("id") int id) throws ClassNotFoundException, SQLException {
