@@ -29,16 +29,19 @@ public class TesteCadastro {
 		
 		AdminDAO dao = new AdminDAO();
 		UsuarioDAO dao2 = new UsuarioDAO();
+		// DEIXAR O ID ENDERECO E ID TELEFONE COMO NULO E NO BANCO DE DADO TAMBÉM PODE SER NULO.
 		
+		// IMPORTANTE AO COLOCAR O SEXO SEMPRE MAISCULO OU M OU F OU I SE COLOCAR m ou f ou i vai da erro por causa do CHECK
 		adm.setId(inteiro("id:"));
 		adm.setNome(texto("Nome"));
 		adm.setSobrenome(texto("Sobrenome:"));
 		adm.setSexo(texto("Sexo"));
 		adm.setCargo(texto("Cargo:"));
+		adm.setEmail(texto("Email:"));
 		adm.setSenha(texto("Senha:"));
 		adm.setSenha2(texto("Senha novamente:"));
-		adm.setId_endereco(inteiro("Id endereço"));
-		adm.setId_telefone(inteiro("Id Telefone"));
+		/*adm.setId_endereco(inteiro("Id endereço"));
+		adm.setId_telefone(inteiro("Id Telefone"));*/
 		
 		/*usr.setId(inteiro("id:"));
 		usr.setNome(texto("Nome"));

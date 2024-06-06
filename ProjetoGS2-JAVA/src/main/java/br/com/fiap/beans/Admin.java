@@ -2,7 +2,13 @@ package br.com.fiap.beans;
 
 public class Admin {
 	private int id, id_endereco, id_telefone;
-	private String nome, sobrenome, cargo, sexo, senha, senha2;
+	private String nome, sobrenome, cargo, sexo, senha, senha2, email;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Admin(int id, int id_endereco, int id_telefone, String nome, String sobrenome, String cargo, String sexo,
 			String senha, String senha2) {
 		super();
