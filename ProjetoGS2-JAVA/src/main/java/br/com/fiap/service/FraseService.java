@@ -16,7 +16,7 @@ import br.com.fiap.model.ConsultaViaCEP;
 
 public class FraseService {
 	
-    public ConsultaFrase getConsultaElevacao() throws ClientProtocolException, IOException {
+    public ConsultaFrase getConsultaFrase(String cep) throws ClientProtocolException, IOException {
 
         ConsultaFrase consultaFrase = null;
         
